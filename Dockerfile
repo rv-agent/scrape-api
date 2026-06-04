@@ -34,6 +34,7 @@ COPY .env.example .env.example
 
 # Make sure scripts in .local are usable
 ENV PATH=/root/.local/bin:$PATH
+ENV PYTHONPATH=/root/.local/lib/python3.11/site-packages:$PYTHONPATH
 
 # Create non-root user
 RUN useradd -m -u 1000 appuser && \
