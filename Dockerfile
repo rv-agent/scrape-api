@@ -43,7 +43,7 @@ EXPOSE 8000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=30s --retries=3 \
-    CMD sh -c "python -c \"import httpx; r = httpx.get('http://localhost:${PORT:-8000}/health'); r.raise_for_status()\""
+    CMD python -c "import httpx; r = httpx.get('http://localhost:8000/health'); r.raise_for_status()"
 
 # Run application
 CMD ["sh", "-c", "python -m uvicorn src.main:app --host 0.0.0.0 --port 8000"]
