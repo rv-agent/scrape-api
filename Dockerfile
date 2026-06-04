@@ -36,7 +36,9 @@ COPY .env.example .env.example
 ENV PATH=/root/.local/bin:$PATH
 
 # Create non-root user
-RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
+RUN useradd -m -u 1000 appuser && \
+    chown -R appuser:appuser /app && \
+    chmod -R a+rX /root/.local
 USER appuser
 
 # Expose port
