@@ -39,7 +39,8 @@ ENV PYTHONPATH=/root/.local/lib/python3.11/site-packages:$PYTHONPATH
 # Create non-root user
 RUN useradd -m -u 1000 appuser && \
     chown -R appuser:appuser /app && \
-    chmod -R a+rX /root/.local
+    chmod -R a+rX /root/.local && \
+    chmod +x /root/.local/bin/*
 USER appuser
 
 # Expose port
